@@ -38,7 +38,7 @@
                         // tr要素をtable要素の子要素に追加
                         table.appendChild(tr);
 
-                        total_table ={};
+                        total_table = {};
                         // テーブル本体を作成
                         for (var i = 0; i < json.length; i++) {
                             if (json[i]["contractAddress"] == "0x0b5cfed5efb6f831468b8b5b5321b71825a2aee0" && json[i]["from"] == "0x0000000000000000000000000000000000000000") {
@@ -225,6 +225,19 @@
                                                 case "20031":
                                                     td.textContent = "Blueprint: Refined Metal";
                                                     break;
+                                                ///
+                                                case "10002": td.textContent = "Pure Metal";break;
+                                                case "20032": td.textContent = "Blueprint: Pure Metal"; break;
+                                                case "20035": td.textContent = "Blueprint: Beacon Mk I Beast"; break;
+                                                case "40012": td.textContent = "Solid helmet - pink silver"; break;
+                                                case "40017": td.textContent = "Squadron helmet - pink silver"; break;
+                                                case "52000": td.textContent = "Common Beacon"; break;
+                                                case "52004": td.textContent = "Beacon Antenna"; break;
+                                                case "52005": td.textContent = "Beacon Thorax"; break;
+                                                case "52006": td.textContent = "Beacon Claw"; break;
+                                                case "52100": td.textContent = "Pulse Scanner Mk I"; break;
+                                                case "90043": td.textContent = "Blueprint: Cyber Quest Key"; break;
+                                                case "90044": td.textContent = "Battle Pass: Cyber Quest"; break;
                                                 default:
                                                     td.textContent = json[i][key];
                                                     break;
@@ -232,7 +245,7 @@
                                             }
                                             if (!(td.textContent in total_table)) {
                                                 total_table[td.textContent] = Number(json[i]["tokenValue"]);
-                                            }else{
+                                            } else {
                                                 total_table[td.textContent] += Number(json[i]["tokenValue"]);
                                             }
                                         } else {
@@ -264,17 +277,17 @@
                         // tr要素をtable要素の子要素に追加
                         table.appendChild(tr);
 
-                                // th・td部分のループ
-                                for (key in total_table) {
-                                    var tr = document.createElement('tr');
-                                    var td = document.createElement('td');
-                                    td.textContent = key;
-                                    tr.appendChild(td);
-                                    td = document.createElement('td');
-                                    td.textContent = total_table[key];
-                                    tr.appendChild(td);
-                                    table.appendChild(tr);
-                                }
+                        // th・td部分のループ
+                        for (key in total_table) {
+                            var tr = document.createElement('tr');
+                            var td = document.createElement('td');
+                            td.textContent = key;
+                            tr.appendChild(td);
+                            td = document.createElement('td');
+                            td.textContent = total_table[key];
+                            tr.appendChild(td);
+                            table.appendChild(tr);
+                        }
                         document.getElementById('totaltable').appendChild(table);
                     },
                     error: function (data) {
@@ -289,10 +302,11 @@
         })
     </script>
     <style>
-        body{
-            background-color:rgb(0, 0, 0);
+        body {
+            background-color: rgb(0, 0, 0);
             color: rgb(106, 212, 0);
         }
+
         div#paging {
             text-align: center;
             /* スクロールに対してページングボックスの位置を固定 */
@@ -316,16 +330,16 @@
 
         button {
             background: rgb(91, 91, 91);
-            color: rgb(106, 212, 0);            
+            color: rgb(106, 212, 0);
         }
-        
+
         td {
             /* 枠線を1本線指定 */
             border: solid 1px;
             width: auto;
             background: rgb(0, 0, 0);
             color: rgb(106, 212, 0);
-            text-align:center;
+            text-align: center;
         }
 
         table {
@@ -350,7 +364,7 @@
 <body>
     <form action="#" method="post">
         <p>Wallet Address：<br>
-            <input type="text" name="address" id="address" >
+            <input type="text" name="address" id="address">
         </p>
         <p><input type="button" value="Check DEFY Loot Items Log" id="button"></p>
     </form>
@@ -404,7 +418,7 @@
             });
             draw();//初回表示
         });
-                window.onload = function onLoad() {
+        window.onload = function onLoad() {
 
             var params = new URLSearchParams(window.location.search);
 
