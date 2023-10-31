@@ -288,7 +288,7 @@
                         table.appendChild(tr);
 
                         // th・td部分のループ
-                        for (key in total_table) {
+                        for (key in total_table.sort()) {
                             var tr = document.createElement('tr');
                             var td = document.createElement('td');
                             td.textContent = key;
