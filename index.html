@@ -226,7 +226,7 @@
                                                     td.textContent = "Blueprint: Refined Metal";
                                                     break;
                                                 ///
-                                                case "10002": td.textContent = "Pure Metal";break;
+                                                case "10002": td.textContent = "Pure Metal"; break;
                                                 case "20032": td.textContent = "Blueprint: Pure Metal"; break;
                                                 case "20035": td.textContent = "Blueprint: Beacon Mk I Beast"; break;
                                                 case "40012": td.textContent = "Solid helmet - pink silver"; break;
@@ -288,13 +288,14 @@
                         table.appendChild(tr);
 
                         // th・td部分のループ
+                        const pairs = Object.entries(total_table);
+                        pairs.sort(function (p1, p2) {
+                            if (p1[0] > p2[0]) { return 1; };
+                            if (p1[0] < p2[0]) { return -1; };
+                            return 0;
+                        })
+                        total_table = Object.fromEntries(pairs);
 
-var pairs = Object.entries(total_table);
-pairs.sort(function(p1, p2){
-  return p1.key - p2.key;
-})
-total_table = Object.fromEntries(pairs);
-                        
 
                         for (key in total_table) {
                             var tr = document.createElement('tr');
