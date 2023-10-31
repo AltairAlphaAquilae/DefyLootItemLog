@@ -290,7 +290,7 @@
                         // th・td部分のループ
                         //キーを含んだ配列に変換 オブジェクト⇒配列
                         var array = Object.keys(total_table).map((k)=>({ key: k, value: total_table[k] }));
-                        array.sort();
+                        array.sort((a, b) => a.key - b.key);
                         total_table = Object.assign({}, ...array.map((item) => ({
                         [item.key]: item.value,
                         })));
@@ -298,10 +298,10 @@
                             var tr = document.createElement('tr');
                             var td = document.createElement('td');
                             td.textContent = key;
+                            td.style.textAlign = "left";
                             tr.appendChild(td);
                             td = document.createElement('td');
                             td.textContent = total_table[key];
-                            td.style.textAlign = "left";
                             tr.appendChild(td);
                             table.appendChild(tr);
                         }
