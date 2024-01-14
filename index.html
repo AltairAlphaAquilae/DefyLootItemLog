@@ -45,12 +45,12 @@
                         // テーブル本体を作成
                         for (var i = 0; i < json.length; i++) {
                             if ((json[i]["contractAddress"] == "0x0b5cfed5efb6f831468b8b5b5321b71825a2aee0" && json[i]["from"] == "0x0000000000000000000000000000000000000000")
-                            || (json[i]["contractAddress"] == "0x3129C7773bE4688B966e3A863c47ed0B7d25c6d3" && json[i]["from"] == "0xd3f1006aC2E48e5E830380f7D14454ADB8962Bc9") ){
+                            || (json[i]["contractAddress"] == "0x0b5cfed5efb6f831468b8b5b5321b71825a2aee0" && json[i]["from"] == "0xd3f1006aC2E48e5E830380f7D14454ADB8962Bc9") ){
                                 // tr要素を生成
                                 var tr = document.createElement('tr');
                                 // td要素を生成
                                 var td = document.createElement('td');
-                                if (json[i]["contractAddress"] == "0x0b5cfed5efb6f831468b8b5b5321b71825a2aee0") {
+                                if (json[i]["from"] == "0x0000000000000000000000000000000000000000") {
                                     td.textContent = "Loot";
                                 } else {
                                     td.textContent = "BlackMarket";
