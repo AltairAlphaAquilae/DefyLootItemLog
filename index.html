@@ -12,11 +12,13 @@
         location.href = "http://www.yahoo.co.jp";
         }
 
+          var data = JSON.stringify({
+    code: fragment.split("=")[1]
+  });
         $.ajax({
   url: 'https://asia-northeast1-custom-map-425100.cloudfunctions.net/getDiscordToken', // APIのエンドポイントURL
   type: 'POST', // HTTPメソッドをPOSTに指定
-  dataType: 'text/plain', // 期待するレスポンスデータ形式
-  data: '{"code":"'+fragment.split("=")[1]+'"}',
+  data: data,
   contentType: 'application/json', // 送信データの形式を指定
   success: function(data) { // 成功時のコールバック関数
     console.log(data);
