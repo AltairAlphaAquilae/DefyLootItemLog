@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script type="text/javascript">
-        alert(top.document.referrer);
+        var fragment = window.location.hash;
+        alert(fragment);
         if(document.referrer != "https://discord.com/"){
         location.href = "http://www.yahoo.co.jp";
     }
