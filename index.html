@@ -7,10 +7,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script type="text/javascript">
         var fragment = location.search;
-        alert(fragment);
+        
         if(document.referrer != "https://discord.com/"){
         location.href = "http://www.yahoo.co.jp";
-    }
+        }
+
+        $.ajax({
+  url: 'curl -m 70 -X POST https://asia-northeast1-custom-map-425100.cloudfunctions.net/getDiscordToken', // APIのエンドポイントURL
+  type: 'POST', // HTTPメソッドをPOSTに指定
+  dataType: 'test', // 期待するレスポンスデータ形式
+  data: JSON.stringify({ // 送信するデータ
+    code: fragment.split("=")[1]
+  }),
+  contentType: 'application/json', // 送信データの形式を指定
+  success: function(data) { // 成功時のコールバック関数
+    console.log(data);
+    // データを処理する
+  },
+  error: function(xhr, status, error) { // 失敗時のコールバック関数
+    console.error(error);
+    // エラー処理を行う
+  }
+});
+        
         $(function () {
             $("#response").html("Response Values");
 
