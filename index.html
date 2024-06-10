@@ -19,7 +19,8 @@
   url: 'https://asia-northeast1-custom-map-425100.cloudfunctions.net/getDiscordToken', // APIのエンドポイントURL
   type: 'POST', // HTTPメソッドをPOSTに指定
   data: data,
-  contentType: 'application/json', // 送信データの形式を指定
+  contentType: 'application/json', // 送信データの形式を指定,
+  Accept: 'application/json',
   success: function(data) { // 成功時のコールバック関数
     console.log(data);
     // データを処理する
